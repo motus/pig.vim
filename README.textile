@@ -11,11 +11,11 @@ h3. To install:
 
 * add the following three lines to your =~/.vimrc= file:
 
-<code><pre>
+<pre><code>
 augroup filetypedetect
   au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
 augroup END
-</pre></code>
+</code></pre>
 
 Enjoy! :)
 
