@@ -1,0 +1,21 @@
+
+h2. Pig syntax highlighting for vim
+
+Please vote for this script on vim.org:
+
+http://www.vim.org/scripts/script.php?script_id=2186
+
+h3. To install:
+
+* copy =pig.vim= file into your =~/.vim/syntax/= directory;
+
+* add the following three lines to your =~/.vimrc= file:
+
+<code><pre>
+augroup filetypedetect
+  au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
+augroup END
+</pre></code>
+
+Enjoy! :)
+
