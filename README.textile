@@ -7,12 +7,11 @@ http://www.vim.org/scripts/script.php?script_id=2186
 
 h3. To install:
 
-* copy =pig.vim= file into your =~/.vim/syntax/= directory;
+* copy <code>pig.vim</code> file into your <code>~/.vim/syntax/</code> directory;
 
-* add the following three lines to your =~/.vimrc= file:
+* add the following three lines to your <code>~/.vimrc</code> file:
 
-<pre><code>
-augroup filetypedetect
+<pre><code>augroup filetypedetect
   au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
 augroup END
 </code></pre>
