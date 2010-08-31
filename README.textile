@@ -1,9 +1,7 @@
 
 h2. Pig syntax highlighting for vim
 
-Please vote for this script on vim.org:
-
-http://www.vim.org/scripts/script.php?script_id=2186
+Please vote for this script on "vim.org":http://www.vim.org/scripts/script.php?script_id=2186
 
 h3. To install:
 
