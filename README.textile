@@ -5,6 +5,8 @@ Please vote for this script on "vim.org":http://www.vim.org/scripts/script.php?s
 
 h3. To install:
 
+h4. Manual:
+
 * copy <code>pig.vim</code> file into your <code>~/.vim/syntax/</code> directory;
 
 * add the following three lines to your <code>~/.vimrc</code> file:
@@ -13,6 +15,15 @@ h3. To install:
   au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
 augroup END
 </code></pre>
+
+h4. Using Vundle:
+
+```VimL
+
+    Bundle "sudar/comments.vim"
+
+    And :BundleInstall
+```
 
 Enjoy! :)
 
