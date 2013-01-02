@@ -18,12 +18,12 @@ augroup END
 
 h4. Using Vundle:
 
-```VimL
-
+<pre><code>
     Bundle "sudar/comments.vim"
 
     And :BundleInstall
-```
+
+</code></pre>
 
 Enjoy! :)
 
