@@ -7,9 +7,9 @@ h3. To install:
 
 h4. Manual:
 
-* copy <code>pig.vim</code> file into your <code>~/.vim/syntax/</code> directory;
+* copy @pig.vim@ file into your @~/.vim/syntax/@ directory;
 
-* add the following three lines to your <code>~/.vimrc</code> file:
+* add the following three lines to your @~/.vimrc@ file:
 
 <pre><code>augroup filetypedetect
   au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
@@ -18,12 +18,9 @@ augroup END
 
 h4. Using Vundle:
 
-<pre><code>
-    Bundle "sudar/comments.vim"
+* add @Bundle "motus/pig.vim"@ to your @~/.vimrc@ file;
 
-    And :BundleInstall
-
-</code></pre>
+* run @:BundleInstall@ in vim
 
 Enjoy! :)
 
