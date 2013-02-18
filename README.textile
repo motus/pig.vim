@@ -7,14 +7,9 @@ h3. To install:
 
 h4. Manual:
 
-* copy @pig.vim@ file into your @~/.vim/syntax/@ directory;
+* copy @syntax/pig.vim@ file into your @~/.vim/syntax/@ directory;
+* copy @ftdetect/pig.vim@ file into your @~/.vim/ftdetect/@ directory;
 
-* add the following three lines to your @~/.vimrc@ file:
-
-<pre><code>augroup filetypedetect
-  au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
-augroup END
-</code></pre>
 
 h4. Using Vundle:
 
@@ -25,4 +20,3 @@ h4. Using Vundle:
 * run @:BundleInstall@ in vim.
 
 Enjoy! :)
-
