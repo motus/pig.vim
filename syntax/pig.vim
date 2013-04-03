@@ -37,6 +37,8 @@ syn match pigGrunt "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\
 syn match pigGruntCmd "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|rm\|set\)\>" contained
 syn match pigRegisterKeyword "^\s*register\>" contained
 
+" Highlight aliases:
+" DEFINE _pow_ org.apache.pig.piggybank.evaluation.math.POW();
 syn match pigDefineKeyword "^\s*define\>" contained
 syn match pigDefineVar "\s[a-zA-Z0-9_]\{-}\s" contains=PigRegisterKeyword skipwhite
 
