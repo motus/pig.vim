@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	Pig
 " Maintainer:	Sergiy Matusevych <motus2@yahoo.com>
-" Last Change: 2010 Jan 5
+" Last Change: 2013 Apr 3
 
 if exists("b:current_syntax")
   finish
@@ -36,6 +36,9 @@ syn match pigSpecial "[#*]"
 syn match pigGrunt "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|register\|rm\|set\)\>.*$" contains=pigGruntCmd,pigRegisterKeyword,pigComment
 syn match pigGruntCmd "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|rm\|set\)\>" contained
 syn match pigRegisterKeyword "^\s*register\>" contained
+
+syn match pigDefineKeyword "^\s*define\>" contained
+syn match pigDefineVar "\s[a-zA-Z0-9_]\{-}\s" contains=PigRegisterKeyword skipwhite
 
 " Strings and characters:
 syn region pigString		start=+"+  skip=+\\\\\|\\"+  end=+"+
@@ -90,6 +93,8 @@ if version >= 508 || !exists("did_c_syn_inits")
   HiLink pigGrunt String
   HiLink pigGruntCmd Statement
   HiLink pigRegisterKeyword Include
+
+  HiLink pigDefineVar Include
 
   delcommand HiLink
 endif
