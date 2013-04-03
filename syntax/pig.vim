@@ -40,7 +40,7 @@ syn match pigRegisterKeyword "^\s*register\>" contained
 " Highlight aliases:
 " DEFINE _pow_ org.apache.pig.piggybank.evaluation.math.POW();
 syn match pigDefineKeyword "^\s*define\>" contained
-syn match pigDefineVar "\s[a-zA-Z0-9_]\{-}\s" contains=PigRegisterKeyword skipwhite
+syn match pigDefineVar "\s*[a-zA-Z0-9_]\{-}\s" contains=PigRegisterKeyword skipwhite
 
 " Strings and characters:
 syn region pigString		start=+"+  skip=+\\\\\|\\"+  end=+"+
