@@ -38,7 +38,7 @@ syn match pigGruntCmd "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|du
 syn match pigRegisterKeyword "^\s*register\>" contained
 
 syn match pigDefineKeyword "^\s*define\s*" contained
-syn match pigDefineVar "[a-zA-Z0-9_]\{-}\s" contains=PigRegisterKeyword
+syn match pigDefineAlias "[a-zA-Z0-9_]\{-}\s" contains=PigRegisterKeyword
 
 " Strings and characters:
 syn region pigString		start=+"+  skip=+\\\\\|\\"+  end=+"+
@@ -94,7 +94,7 @@ if version >= 508 || !exists("did_c_syn_inits")
   HiLink pigGruntCmd Statement
   HiLink pigRegisterKeyword Include
 
-  HiLink pigDefineVar Identifier
+  HiLink pigDefineAlias Identifier
 
   delcommand HiLink
 endif
