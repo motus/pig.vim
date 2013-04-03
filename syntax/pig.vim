@@ -94,7 +94,7 @@ if version >= 508 || !exists("did_c_syn_inits")
   HiLink pigGruntCmd Statement
   HiLink pigRegisterKeyword Include
 
-  HiLink pigDefineVar Include
+  HiLink pigDefineVar Identifier
 
   delcommand HiLink
 endif
