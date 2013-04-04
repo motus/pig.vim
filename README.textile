@@ -16,13 +16,5 @@ h4. Manual:
 augroup END
 </code></pre>
 
-h4. Using Vundle:
-
-* add the following line
-
-<pre><code>Bundle "motus/pig.vim"</code></pre> to your @~/.vimrc@ file;
-
-* run @:BundleInstall@ in vim.
-
 Enjoy! :)
 
