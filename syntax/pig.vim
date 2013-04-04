@@ -44,7 +44,7 @@ syn region pigString		start=+'+  skip=+\\\\\|\\'+  end=+'+
 syn region pigString		start=+`+  skip=+\\\\\|\\`+  end=+`+
 
 " Dollar variables:
-syn match pigDollarVar "$\d\+"
+syn match pigDollarVar "$[a-zA-Z0-9_]\+"
 
 " Numbers:
 syn match  pigNumber "[-+]\=\(\<\d[[:digit:]_]*L\=\>\|0[xX]\x[[:xdigit:]_]*\>\)"
@@ -81,7 +81,7 @@ if version >= 508 || !exists("did_c_syn_inits")
   HiLink pigKeyword   Statement
   HiLink pigNumber    Number
   HiLink pigFloat     Float
-  HiLink pigDollarVar Identifier
+  HiLink pigDollarVar Constant
   HiLink pigAssignVar Identifier
   HiLink pigString    String
   HiLink pigTodo      Todo
