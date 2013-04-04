@@ -15,6 +15,7 @@ syn keyword pigKeyword  by using inner outer parallel group
 syn keyword pigKeyword  continuously window tuples generate eval
 syn keyword pigKeyword  input output ship cache stream through
 syn keyword pigKeyword  seconds minutes hours asc desc null left right full
+syn keyword pigKeyword  import limit mapreduce sample
 
 syn keyword pigType chararray bytearray int long float double tuple bag map
 
@@ -23,8 +24,22 @@ syn keyword pigOperator and or not matches is
 
 syn match pigFunction "\<[a-zA-Z][a-zA-Z0-9_]*\s*(" contains=pigFunctionName
 
-syn keyword pigFunctionName flatten sum count min max avg arity tokenize diff size concat contained
-syn keyword pigFunctionName BinStorage PigStorage TextLoader PigDump IsEmpty contained
+" Eval functions
+syn keyword pigFunctionName avg concat count count_star diff IsEmpty contained
+syn keyword pigFunctionName max min size sum tokenize contained
+" Load/store functions
+syn keyword pigFunctionName BinStorage JsonLoader JsonStorage PigDump contained
+syn keyword pigFunctionName PigStorage TextLoader contained
+" Math functions
+syn keyword pigFunctionName abs acos asin atan cbrt ceil cos cosh exp contained
+syn keyword pigFunctionName floor log log10 random round sin sinh contained
+syn keyword pigFunctionName sqrt tan tanh contained
+" String functions
+syn keyword pigFunctionName indexof last_index_of lcfirst lower contained
+syn keyword pigFunctionName regex_extract regex_extract_all replace contained
+syn keyword pigFunctionName strsplit substring trim ucfirst uppder contained
+" Other function
+syn keyword pigFunctionName totuple tobag tomap top flatten arity returns contained
 
 syn match pigAssignVar "^\s*[a-zA-Z][a-zA-Z0-9_]*\s*=[^=]" contains=pigAssignEq
 syn match pigAssignEq  "=" contained
