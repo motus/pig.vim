@@ -1,7 +1,5 @@
 " Vim syntax file
 " Language:	Pig
-" Maintainer:	Sergiy Matusevych <motus2@yahoo.com>
-" Last Change: 2013 Apr 3
 
 if exists("b:current_syntax")
   finish
@@ -15,7 +13,7 @@ syn keyword pigKeyword  load store filter foreach order arrange distinct
 syn keyword pigKeyword  cogroup join cross union split into if all any as
 syn keyword pigKeyword  by using inner outer parallel group
 syn keyword pigKeyword  continuously window tuples generate eval
-syn keyword pigKeyword  define input output ship cache stream through
+syn keyword pigKeyword  input output ship cache stream through
 syn keyword pigKeyword  seconds minutes hours asc desc null left right full
 
 syn keyword pigType chararray bytearray int long float double tuple bag map
@@ -37,8 +35,8 @@ syn match pigGrunt "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\
 syn match pigGruntCmd "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|rm\|set\)\>" contained
 syn match pigRegisterKeyword "^\s*register\>" contained
 
-syn match pigDefineKeyword "^\s*define\s*" contained
-syn match pigDefineAlias "[a-zA-Z0-9_]\{-}\s" contains=PigRegisterKeyword
+syn match pigDefineAlias "^\s*define" nextgroup=pigDefinedAlias skipwhite
+syn match pigDefinedAlias "[a-zA-Z0-9_]\+" contained skipwhite
 
 " Strings and characters:
 syn region pigString		start=+"+  skip=+\\\\\|\\"+  end=+"+
@@ -94,7 +92,8 @@ if version >= 508 || !exists("did_c_syn_inits")
   HiLink pigGruntCmd Statement
   HiLink pigRegisterKeyword Include
 
-  HiLink pigDefineAlias Identifier
+  HiLink pigDefinedAlias Identifier
+  HiLink pigDefineAlias Define
 
   delcommand HiLink
 endif
