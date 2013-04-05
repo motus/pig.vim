@@ -9,13 +9,13 @@ syn case ignore
 
 " Pig keywords:
 
-syn keyword pigKeyword  load store filter foreach order arrange distinct
-syn keyword pigKeyword  cogroup join cross union split into if all any as
-syn keyword pigKeyword  by using inner outer parallel group
-syn keyword pigKeyword  continuously window tuples generate eval
-syn keyword pigKeyword  input output ship cache stream through
-syn keyword pigKeyword  seconds minutes hours asc desc null left right full
-syn keyword pigKeyword  import limit mapreduce sample
+syn keyword pigKeyword load store filter foreach order arrange distinct
+syn keyword pigKeyword cogroup join cross union split into if all any as
+syn keyword pigKeyword by using inner outer parallel group
+syn keyword pigKeyword continuously window tuples generate eval
+syn keyword pigKeyword input output ship cache stream through
+syn keyword pigKeyword seconds minutes hours asc desc null left right full
+syn keyword pigKeyword limit mapreduce sample
 
 syn keyword pigType chararray bytearray int long float double tuple bag map
 
@@ -46,9 +46,9 @@ syn match pigAssignEq  "=" contained
 
 syn match pigSpecial "[#*]"
 
-syn match pigGrunt "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|register\|rm\|set\)\>.*$" contains=pigGruntCmd,pigRegisterKeyword,pigComment
+syn match pigGrunt "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|import\|register\|rm\|set\)\>.*$" contains=pigGruntCmd,pigRegisterKeyword,pigComment
 syn match pigGruntCmd "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|rm\|set\)\>" contained
-syn match pigRegisterKeyword "^\s*register\>" contained
+syn match pigRegisterKeyword "^\s*\(register\|import\)\>" contained
 
 syn match pigDefineAlias "^\s*define" nextgroup=pigDefinedAlias skipwhite
 syn match pigDefinedAlias "[a-zA-Z0-9_]\+" contained skipwhite
