@@ -1,5 +1,6 @@
 " Vim syntax file
 " Language:	Pig
+" Maintainer:	Sergiy Matusevych <motus2@yahoo.com>
 
 if exists("b:current_syntax")
   finish
