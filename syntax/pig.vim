@@ -25,7 +25,7 @@ syn keyword pigOperator and or not matches is
 
 syn match pigFunction "\<[a-zA-Z][a-zA-Z0-9_]*\s*(" contains=pigFunctionName
 
-syn keyword pigFunctionName flatten sum count min max avg arity tokenize diff size concat contained
+syn keyword pigFunctionName flatten sum count min max avg arity strsplit tokenize diff size concat contained
 syn keyword pigFunctionName BinStorage PigStorage TextLoader PigDump IsEmpty contained
 
 syn match pigAssignVar "^\s*[a-zA-Z][a-zA-Z0-9_]*\s*=[^=]" contains=pigAssignEq
