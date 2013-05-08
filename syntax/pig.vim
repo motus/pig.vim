@@ -1,7 +1,6 @@
 " Vim syntax file
 " Language:	Pig
 " Maintainer:	Sergiy Matusevych <motus2@yahoo.com>
-" Last Change: 2010 Jan 5
 
 if exists("b:current_syntax")
   finish
@@ -11,12 +10,13 @@ syn case ignore
 
 " Pig keywords:
 
-syn keyword pigKeyword  load store filter foreach order arrange distinct
-syn keyword pigKeyword  cogroup join cross union split into if all any as
-syn keyword pigKeyword  by using inner outer parallel group
-syn keyword pigKeyword  continuously window tuples generate eval
-syn keyword pigKeyword  define input output ship cache stream through
-syn keyword pigKeyword  seconds minutes hours asc desc null left right full
+syn keyword pigKeyword load store filter foreach order arrange distinct
+syn keyword pigKeyword cogroup join cross union split into if all any as
+syn keyword pigKeyword by using inner outer parallel group
+syn keyword pigKeyword continuously window tuples generate eval
+syn keyword pigKeyword input output ship cache stream through
+syn keyword pigKeyword seconds minutes hours asc desc null left right full
+syn keyword pigKeyword limit mapreduce sample
 
 syn keyword pigType chararray bytearray int long float double tuple bag map
 
@@ -25,17 +25,34 @@ syn keyword pigOperator and or not matches is
 
 syn match pigFunction "\<[a-zA-Z][a-zA-Z0-9_]*\s*(" contains=pigFunctionName
 
-syn keyword pigFunctionName flatten sum count min max avg arity tokenize diff size concat contained
-syn keyword pigFunctionName BinStorage PigStorage TextLoader PigDump IsEmpty contained
+" Eval functions
+syn keyword pigFunctionName avg concat count count_star diff IsEmpty contained
+syn keyword pigFunctionName max min size sum tokenize contained
+" Load/store functions
+syn keyword pigFunctionName BinStorage JsonLoader JsonStorage PigDump contained
+syn keyword pigFunctionName PigStorage TextLoader contained
+" Math functions
+syn keyword pigFunctionName abs acos asin atan cbrt ceil cos cosh exp contained
+syn keyword pigFunctionName floor log log10 random round sin sinh contained
+syn keyword pigFunctionName sqrt tan tanh contained
+" String functions
+syn keyword pigFunctionName indexof last_index_of lcfirst lower contained
+syn keyword pigFunctionName regex_extract regex_extract_all replace contained
+syn keyword pigFunctionName strsplit substring trim ucfirst uppder contained
+" Other function
+syn keyword pigFunctionName totuple tobag tomap top flatten arity returns contained
 
 syn match pigAssignVar "^\s*[a-zA-Z][a-zA-Z0-9_]*\s*=[^=]" contains=pigAssignEq
 syn match pigAssignEq  "=" contained
 
 syn match pigSpecial "[#*]"
 
-syn match pigGrunt "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|register\|rm\|set\)\>.*$" contains=pigGruntCmd,pigRegisterKeyword,pigComment
+syn match pigGrunt "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|import\|register\|rm\|set\)\>.*$" contains=pigGruntCmd,pigRegisterKeyword,pigComment
 syn match pigGruntCmd "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|rm\|set\)\>" contained
-syn match pigRegisterKeyword "^\s*register\>" contained
+syn match pigRegisterKeyword "^\s*\(register\|import\)\>" contained
+
+syn match pigDefineAlias "^\s*define" nextgroup=pigDefinedAlias skipwhite
+syn match pigDefinedAlias "[a-zA-Z0-9_]\+" contained skipwhite
 
 " Strings and characters:
 syn region pigString		start=+"+  skip=+\\\\\|\\"+  end=+"+
@@ -43,7 +60,7 @@ syn region pigString		start=+'+  skip=+\\\\\|\\'+  end=+'+
 syn region pigString		start=+`+  skip=+\\\\\|\\`+  end=+`+
 
 " Dollar variables:
-syn match pigDollarVar "$\d\+"
+syn match pigDollarVar "$[a-zA-Z0-9_]\+"
 
 " Numbers:
 syn match  pigNumber "[-+]\=\(\<\d[[:digit:]_]*L\=\>\|0[xX]\x[[:xdigit:]_]*\>\)"
@@ -80,7 +97,7 @@ if version >= 508 || !exists("did_c_syn_inits")
   HiLink pigKeyword   Statement
   HiLink pigNumber    Number
   HiLink pigFloat     Float
-  HiLink pigDollarVar Identifier
+  HiLink pigDollarVar Constant
   HiLink pigAssignVar Identifier
   HiLink pigString    String
   HiLink pigTodo      Todo
@@ -90,6 +107,9 @@ if version >= 508 || !exists("did_c_syn_inits")
   HiLink pigGrunt String
   HiLink pigGruntCmd Statement
   HiLink pigRegisterKeyword Include
+
+  HiLink pigDefinedAlias Identifier
+  HiLink pigDefineAlias Define
 
   delcommand HiLink
 endif

@@ -25,4 +25,3 @@ h4. Using Vundle:
 * run @:BundleInstall@ in vim.
 
 Enjoy! :)
-
