@@ -47,8 +47,8 @@ syn match pigAssignEq  "=" contained
 
 syn match pigSpecial "[#*]"
 
-syn match pigGrunt "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|import\|register\|rm\|set\)\>.*$" contains=pigGruntCmd,pigRegisterKeyword,pigComment
-syn match pigGruntCmd "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|rm\|set\)\>" contained
+syn match pigGrunt "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|import\|register\|rm\|rmf\|set\)\>.*$" contains=pigGruntCmd,pigRegisterKeyword,pigComment
+syn match pigGruntCmd "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|rm\|rmf\|set\)\>" contained
 syn match pigRegisterKeyword "^\s*\(register\|import\)\>" contained
 
 syn match pigDefineAlias "^\s*define" nextgroup=pigDefinedAlias skipwhite
