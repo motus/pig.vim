@@ -38,7 +38,7 @@ syn keyword pigFunctionName sqrt tan tanh contained
 " String functions
 syn keyword pigFunctionName indexof last_index_of lcfirst lower contained
 syn keyword pigFunctionName regex_extract regex_extract_all replace contained
-syn keyword pigFunctionName strsplit substring trim ucfirst uppder contained
+syn keyword pigFunctionName strsplit substring trim ucfirst upper contained
 " Other function
 syn keyword pigFunctionName totuple tobag tomap top flatten arity returns contained
 
