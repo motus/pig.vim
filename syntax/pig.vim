@@ -18,7 +18,7 @@ syn keyword pigKeyword input output ship cache stream through
 syn keyword pigKeyword seconds minutes hours asc desc null left right full
 syn keyword pigKeyword limit mapreduce sample
 
-syn keyword pigType chararray bytearray int long float double tuple bag map
+syn keyword pigType chararray bytearray int long float double tuple bag map boolean
 
 syn keyword pigOperator and or not matches is
 "syn keyword pigOperator ? : == != > >= < <= + - % * /
