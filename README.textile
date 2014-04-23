@@ -21,6 +21,6 @@ h4. Using Vundle:
 
 h4. Using Pathogen:
 
-If you're using "pathogen":https://github.com/tpope/vim-pathogen to manage your vim modules (and if you're not, why aren't you), you can simply add this as a submodule in your `~/.vim/bundle/` directory.
+If you're using "pathogen":https://github.com/tpope/vim-pathogen to manage your vim modules, you can simply add this as a submodule in your `~/.vim/bundle/` directory.
 
 Enjoy! :)
