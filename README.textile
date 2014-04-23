@@ -19,4 +19,8 @@ h4. Using Vundle:
 
 * run @:BundleInstall@ in vim.
 
+h4. Using Pathogen:
+
+If you're using "pathogen":https://github.com/tpope/vim-pathogen to manage your vim modules, you can simply add this as a submodule in your `~/.vim/bundle/` directory.
+
 Enjoy! :)
