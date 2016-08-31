@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language:	Pig
-" Maintainer:	Sergiy Matusevych <motus2@yahoo.com>
+" Maintainer:	Sergiy Matusevych <sergiy.matusevych@gmail.com>
 
 if exists("b:current_syntax")
   finish
@@ -47,8 +47,10 @@ syn match pigAssignEq  "=" contained
 
 syn match pigSpecial "[#*]"
 
-syn match pigGrunt "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|import\|register\|rm\|rmf\|set\)\>.*$" contains=pigGruntCmd,pigRegisterKeyword,pigString,pigComment
+syn match pigGrunt "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|rm\|rmf\|set\)\>.*$" contains=pigGruntCmd,pigString,pigComment
 syn match pigGruntCmd "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|rm\|rmf\|set\)\>" contained
+
+syn match pigRegisterStatement "^\s*\(register\|import\)\>[^;]*" contains=pigRegisterKeyword
 syn match pigRegisterKeyword "^\s*\(register\|import\)\>" contained
 
 syn match pigDefineAlias "^\s*define" nextgroup=pigDefinedAlias skipwhite
@@ -106,6 +108,8 @@ if version >= 508 || !exists("did_c_syn_inits")
 
   HiLink pigGrunt String
   HiLink pigGruntCmd Statement
+
+  HiLink pigRegisterStatement String
   HiLink pigRegisterKeyword Include
 
   HiLink pigDefinedAlias Identifier
