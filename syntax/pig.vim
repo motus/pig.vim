@@ -50,11 +50,14 @@ syn match pigSpecial "[#*]"
 syn match pigGrunt "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|rm\|rmf\|set\)\>.*$" contains=pigGruntCmd,pigString,pigComment
 syn match pigGruntCmd "^\s*\(cat\|cd\|cp\|copyFromLocal\|copyToLocal\|define\|dump\|illustrate\|describe\|explain\|help\|kill\|ls\|mv\|mkdir\|pwd\|quit\|rm\|rmf\|set\)\>" contained
 
-syn match pigRegisterStatement "^\s*\(register\|import\)\>[^;]*" contains=pigRegisterKeyword
+syn match pigRegisterStatement "^\s*\(register\|import\)\>" contains=pigRegisterKeyword
 syn match pigRegisterKeyword "^\s*\(register\|import\)\>" contained
 
-syn match pigDefineAlias "^\s*define" nextgroup=pigDefinedAlias skipwhite
+syn match pigDefineAlias "^\s*define\>" nextgroup=pigDefinedAlias skipwhite
 syn match pigDefinedAlias "[a-zA-Z0-9_]\+" contained skipwhite
+
+syn match pigDeclare "^\s*%declare\>" nextgroup=pigDeclared skipwhite
+syn match pigDeclared "[a-zA-Z0-9_]\+" contained skipwhite
 
 " Strings and characters:
 syn region pigString		start=+"+  skip=+\\\\\|\\"+  end=+"+
@@ -115,8 +118,10 @@ if version >= 508 || !exists("did_c_syn_inits")
   HiLink pigDefinedAlias Identifier
   HiLink pigDefineAlias Define
 
+  HiLink pigDeclared Identifier
+  HiLink pigDeclare Define
+
   delcommand HiLink
 endif
 
 let b:current_syntax = "pig"
-
